@@ -6,3 +6,8 @@ format:
 .PHONY: voice
 voice:
 	uv run python main.py
+
+
+.PHONY: requirements.txt
+requirements.txt:
+	uv pip freeze > requirements.txt
