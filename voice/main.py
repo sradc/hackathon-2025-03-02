@@ -4,18 +4,18 @@ Code taken from:
 https://github.com/twilio-samples/speech-assistant-openai-realtime-api-python
 """
 
-import os
-import json
-import base64
 import asyncio
+import base64
+import json
+import os
+
+import ngrok
+import uvicorn
 import websockets
-from fastapi import FastAPI, WebSocket, Request
+from fastapi import FastAPI, Request, WebSocket
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.websockets import WebSocketDisconnect
-from twilio.twiml.voice_response import VoiceResponse, Connect, Say, Stream
-import ngrok
-
-listener = ngrok.forward(5050, authtoken_from_env=True)
+from twilio.twiml.voice_response import Connect, Say, Stream, VoiceResponse
 
 # Configuration
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
@@ -248,6 +248,5 @@ async def initialize_session(openai_ws):
 
 
 if __name__ == "__main__":
-    import uvicorn
-
     uvicorn.run(app, host="0.0.0.0", port=PORT)
+    listener = ngrok.forward(PORT, authtoken_from_env=True)
