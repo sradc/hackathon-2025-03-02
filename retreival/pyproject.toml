@@ -8,3 +8,6 @@ dependencies = [
     "browser-use>=0.1.40",
     "ipython>=9.0.0",
 ]
+
+[tool.uv.workspace]
+members = ["voice_server"]
