@@ -1,0 +1,12 @@
+[project]
+name = "hackathon-2025-03-02"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "browser-use>=0.1.40",
+]
+
+[tool.uv.workspace]
+members = ["voice_server"]
