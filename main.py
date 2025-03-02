@@ -12,7 +12,8 @@ class Field:
     nullable: bool = True
 
 
-SEARCH_TASK = """Find the """
+HIGH_LEVEL_SEARCH = """Find the """
+
 REQUIRED_FILEDS = [
     Field(name="is_available", type="boolean", description="Whether the property is still available"),
     Field(name="available_date", type="date", description="The date the property became available"),
