@@ -9,7 +9,6 @@ import base64
 import json
 import os
 
-import ngrok
 import uvicorn
 import websockets
 from fastapi import FastAPI, Request, WebSocket
@@ -248,6 +247,4 @@ async def initialize_session(openai_ws):
 
 
 if __name__ == "__main__":
-    listener = ngrok.forward(PORT, authtoken_from_env=True)
-    print(f"Ngrok ingress established at {listener.url()}")
     uvicorn.run(app, host="0.0.0.0", port=PORT)
