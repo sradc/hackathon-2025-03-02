@@ -2,3 +2,9 @@
 
 - interface call or whatsapp agent
 
+## TODO
+
+- [ ] search agent that can find properties from a prompt
+- [ ] ability to use browser etc.
+- [ ] agent that can hold a conversation to find out some information
+- [ ] functionality to receieve and send messages + make calls
