@@ -1,5 +1,5 @@
 [project]
-name = "hackathon-2025-03-02"
+name = "voice-server"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -13,5 +13,4 @@ dependencies = [
     "twilio>=9.4.6",
     "uvicorn>=0.34.0",
     "websockets>=15.0",
-    "browser-use>=0.1.40",
 ]
