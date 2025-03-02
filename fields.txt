@@ -1,0 +1,25 @@
+## Info Fields
+
+- PCM cost
+- Available date
+- Proximity of tube / bus
+- Let type
+- Deposit
+- Furnish type
+- Min tenancy
+- Council Tax
+- Location
+- Property type
+- Bedrooms
+- Bathrooms
+- Size
+- Lease type
+- Utility providers
+- Utility price estimates
+- Parking
+- Pets
+
+## Extras:
+- IMPORTANT: Ask if the listing is still available
+- Summarise description text
+- Ask Agent = No info

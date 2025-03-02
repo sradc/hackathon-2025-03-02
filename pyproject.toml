@@ -13,4 +13,5 @@ dependencies = [
     "twilio>=9.4.6",
     "uvicorn>=0.34.0",
     "websockets>=15.0",
+    "browser-use>=0.1.40",
 ]
