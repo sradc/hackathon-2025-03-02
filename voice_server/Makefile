@@ -5,4 +5,4 @@ format:
 
 .PHONY: voice
 voice:
-	uv run python voice/main.py
+	uv run python main.py
