@@ -8,3 +8,7 @@
 - [ ] ability to use browser etc.
 - [ ] agent that can hold a conversation to find out some information
 - [ ] functionality to receieve and send messages + make calls
+
+
+## MVP info to retrieve
+- [ ] is the property still on the market
