@@ -1,3 +1,4 @@
+import asyncio
 from dataclasses import dataclass
 from datetime import date
 
@@ -49,7 +50,8 @@ class Property(pydantic.BaseModel):
     size: int | None = pydantic.Field(default=None, description="The size of the property in square feets")
     utility_prices_estimate: int | None = pydantic.Field(default=None, description="The estimated cost of the utilities of the property")
     parking: bool | None = pydantic.Field(default=None, description="Whether the property has parking")
-    pets: bool | None = pydantic.Field(default=None, description="Whether the property allows pets")\
+    pets: bool | None = pydantic.Field(default=None, description="Whether the property allows pets")
+    contact_number: str | None = pydantic.Field(default=None, description="The contact number of the property")
 
 
 async def find_properties_agent(query):
@@ -63,7 +65,7 @@ async def find_properties_agent(query):
     results = await agent.run()
     if (final_result := results.final_result()):
         return PropertyPageList.model_validate_json(final_result)
-    raise ValueError("No results found")
+    return None
 
 
 async def extract_property_details_agent(property_page: PropertyPage):
@@ -80,4 +82,16 @@ async def extract_property_details_agent(property_page: PropertyPage):
     results = await agent.run()
     if (final_result := results.final_result()):
         return Property.model_validate_json(final_result)
-    raise ValueError("No results found")
+    return None
+
+
+async def run_search_and_extract(query: str):
+    props = []
+    while len(props) < 5:
+        result = await find_properties_agent(query)
+        if result is None or len(result.properties) == 0:
+            continue
+        for i in range(0, len(result.properties), 4):
+            props.extend(await asyncio.gather(*[extract_property_details_agent(prop) for prop in result.properties[i:i+4]]))
+            props = [p for p in props if p is not None]
+    return props
