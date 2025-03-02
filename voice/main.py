@@ -248,5 +248,6 @@ async def initialize_session(openai_ws):
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=PORT)
     listener = ngrok.forward(PORT, authtoken_from_env=True)
+    print(f"Ngrok ingress established at {listener.url()}")
+    uvicorn.run(app, host="0.0.0.0", port=PORT)
