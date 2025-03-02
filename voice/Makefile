@@ -1,6 +1,6 @@
 
 
-.PHONY: vrunoice
+.PHONY: run
 run:
 	./run.sh
 
