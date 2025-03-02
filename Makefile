@@ -1,6 +1,8 @@
 
+.PHONY: format
 format:
 	uv run isort --profile black . && uv run black .
 
-run-voice:
+.PHONY: voice
+voice:
 	uv run python voice/main.py
