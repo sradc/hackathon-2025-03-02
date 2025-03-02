@@ -1,3 +1,18 @@
+# Instructions TLDR
+
+We don't need `ngrok`, we've deployed to url.
+
+### Twilio setup
+
+#### Point a Phone Number to your ngrok URL
+In the [Twilio Console](https://console.twilio.com/), go to **Phone Numbers** > **Manage** > **Active Numbers** and click on the additional phone number you purchased for this app in the **Prerequisites**.
+
+In your Phone Number configuration settings, update the first **A call comes in** dropdown to **Webhook**, and paste your ngrok forwarding URL (referenced above), followed by `/incoming-call`. For example, `<your-deployment-url>/incoming-call`. Then, click **Save configuration**.
+
+---
+
+# Original instructions
+
 <!-- Source: https://github.com/twilio-samples/speech-assistant-openai-realtime-api-python/blob/aeeb36dd256dddae3d6ca97f2167502ebb8e5c02/Readme.md -->
 
 #  Speech Assistant with Twilio Voice and the OpenAI Realtime API (Python)
